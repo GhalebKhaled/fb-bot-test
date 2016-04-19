@@ -37,7 +37,15 @@ class WebhookView(GenericAPIView):
     def post(self, request, *args, **kwargs):
         if request.data and request.data['entry']:
             for entry in request.data['entry']:
+                print "_-_-_-_-_"
+                print entry
+                print type(entry)
+                print "_-_-_-_-_"
                 for msging in entry['messaging']:
+                    print "_-_-_-_-_"
+                    print msging
+                    print type(msging)
+                    print "_-_-_-_-_"
                     for msg in msging:
                         print msg
                         print type(msg)

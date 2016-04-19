@@ -29,6 +29,9 @@ ALLOWED_HOSTS = []
 
 FB_BOT_VERIFY_TOKEN = os.environ.get('FB_BOT_VERIFY_TOKEN') or "TEST_VERIFY_TOKEN"
 
+
+FB_BOT_ACCESS_TOKEN = os.environ.get('FB_BOT_ACCESS_TOKEN') or ""
+
 # Application definition
 
 INSTALLED_APPS = [

@@ -38,8 +38,11 @@ class WebhookView(GenericAPIView):
         if request.data and request.data['entry']:
             for entry in request.data['entry']:
                 for msg in entry['messaging']:
-                    message = msg['message']['text']
-                    sender_id = msg['sender']['id']
-                    send_message(sender_id, "I can only repeat right now:{}".format(message))
+                    if 'message' in msg:
+                        message = msg['message']['text']
+                        sender_id = msg['sender']['id']
+                        send_message(sender_id, "I can only repeat right now:{}".format(message))
+                    else:
+                        print "Error!!!! - got {}".format(msg)
 
         return rest_framework.response.Response(status=rest_framework.status.HTTP_200_OK)

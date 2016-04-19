@@ -39,7 +39,9 @@ class WebhookView(GenericAPIView):
             for entry in request.data['entry']:
                 for msging in entry['messaging']:
                     for msg in msging:
-                        message = msg['message']
+                        print msg
+                        print type(msg)
+                        message = msg['message']['text']
                         sender_id = msg['sender']['1249712545046598']
                         send_message(sender_id, "I can only repeat right now:{}".format(message))
 

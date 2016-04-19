@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+FB_BOT_VERIFY_TOKEN = os.environ.get('FB_BOT_VERIFY_TOKEN') or "TEST_VERIFY_TOKEN"
 
 # Application definition
 

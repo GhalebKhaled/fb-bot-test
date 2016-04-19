@@ -16,7 +16,12 @@ class WebhookView(GenericAPIView):
     def post(self, request, *args, **kwargs):
         print request.POST
         print "----------"
+        print request.data
+        print "----------"
         print args
         print "----------"
         print kwargs
+        print "----------"
+        print request
+
         return rest_framework.response.Response(status=rest_framework.status.HTTP_200_OK)

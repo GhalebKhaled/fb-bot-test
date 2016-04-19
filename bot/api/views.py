@@ -41,7 +41,7 @@ class WebhookView(GenericAPIView):
                     print msg
                     print type(msg)
                     message = msg['message']['text']
-                    sender_id = msg['sender']['1249712545046598']
+                    sender_id = msg['sender']['id']
                     send_message(sender_id, "I can only repeat right now:{}".format(message))
 
         return rest_framework.response.Response(status=rest_framework.status.HTTP_200_OK)

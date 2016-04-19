@@ -42,7 +42,6 @@ class WebhookView(GenericAPIView):
                         message = msg['message']['text']
                         sender_id = msg['sender']['id']
                         send_message(sender_id, "I can only repeat right now:{}".format(message))
-                    else:
-                        print "Error!!!! - got {}".format(msg)
+                    # Else: seems like facebook send ack, just skep them for now
 
         return rest_framework.response.Response(status=rest_framework.status.HTTP_200_OK)

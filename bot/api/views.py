@@ -37,20 +37,11 @@ class WebhookView(GenericAPIView):
     def post(self, request, *args, **kwargs):
         if request.data and request.data['entry']:
             for entry in request.data['entry']:
-                print "_-_-_-_-_"
-                print entry
-                print type(entry)
-                print "_-_-_-_-_"
-                for msging in entry['messaging']:
-                    print "_-_-_-_-_"
-                    print msging
-                    print type(msging)
-                    print "_-_-_-_-_"
-                    for msg in msging:
-                        print msg
-                        print type(msg)
-                        message = msg['message']['text']
-                        sender_id = msg['sender']['1249712545046598']
-                        send_message(sender_id, "I can only repeat right now:{}".format(message))
+                for msg in entry['messaging']:
+                    print msg
+                    print type(msg)
+                    message = msg['message']['text']
+                    sender_id = msg['sender']['1249712545046598']
+                    send_message(sender_id, "I can only repeat right now:{}".format(message))
 
         return rest_framework.response.Response(status=rest_framework.status.HTTP_200_OK)
